@@ -79,7 +79,7 @@ function process(item,unit){
      
    }
    else{
-     console.log("The units that you wanted is"+unit);
+     console.log("The units that you wanted is:"+unit);
      var rs=stock-unit;
      update(rs,item,unit);
 
@@ -94,7 +94,16 @@ function update(rs,item,unit){
   connection.query("UPDATE products SET ? WHERE ?",[{stock_quantity:rs},{item_id:item}],
   function(error){
     if(error)throw error;
-    console.log("updated sucessfully");
+    console.log("Stock updated sucessfully");
+    connection.query("SELECT product_name,stock_quantity from products where ?",[{item_id:item}],
+    function(error,results){
+      if(error)throw error;
+      console.log(" product name \t\t\t stock")
+      console.log("--------------------------------------------");
+      for(i=0;i<results.length;i++){
+       console.log(results[i].product_name+"\t\t\t"+results[i].stock_quantity);
+      }
+    })
     calculate(item,unit);
 
   })
@@ -108,7 +117,7 @@ function calculate(id,unit){
     for(i=0;i<results.length;i++){
       var unitPrice=results[i].price;
       var total=unitPrice*unit;
-      console.log("Total price"+total);
+      console.log("Total price:"+total);
     }
   })
   connection.end(); 
