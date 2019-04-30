@@ -1,0 +1,24 @@
+{
+  "name": "Bamazon_challenge1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgepulikkayath/Bamazon_challenge1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgepulikkayath/Bamazon_challenge1/issues"
+  },
+  "homepage": "https://github.com/georgepulikkayath/Bamazon_challenge1#readme",
+  "dependencies": {
+    "inquirer": "^6.3.1",
+    "mysql": "^2.17.1"
+  }
+}
